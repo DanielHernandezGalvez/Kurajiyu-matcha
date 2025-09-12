@@ -1105,6 +1105,7 @@ GameObject:
   - component: {fileID: 6436571635010346428}
   - component: {fileID: 159604832450629694}
   - component: {fileID: 6120840670351571890}
+  - component: {fileID: 3305413278509384306}
   m_Layer: 0
   m_Name: First_Person_Player
   m_TagString: Player
@@ -1167,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   controller: {fileID: 159604832450629694}
-  speed: 12
+  speed: 7
   gravity: -9.81
   isGrounded: 0
   groundCheck: {fileID: 4923479383480642518}
@@ -1176,6 +1177,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   jumpHight: 1
+--- !u!114 &3305413278509384306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660300030271145493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b6f2e9fc4345f42bed7daa5160a356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManagment
+  health: 100
 --- !u!1 &7780726701069790763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,10 +1470,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 435075660291143935, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7328523842150223697}
   m_SourcePrefab: {fileID: 100100000, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
 --- !u!4 &502617635554894912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4410051066877661230, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
   m_PrefabInstance: {fileID: 4308271420712678510}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4450608689930931345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435075660291143935, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
+  m_PrefabInstance: {fileID: 4308271420712678510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7328523842150223697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450608689930931345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30eda64748fcd934fbeec0c221daf474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
