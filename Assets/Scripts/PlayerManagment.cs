@@ -1,26 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerManagment : MonoBehaviour
 {
+    public GameManager gameManager;
     public float health = 100;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
+    public TextMeshProUGUI healthText;
+  
     public void Hit(float damage)
     {
         health -= damage;
+        healthText.text = $"{health} HP";
 
         if(health <= 0)
         {
-            SceneManager.LoadScene(0);
+            gameManager.GameOver();
+            //SceneManager.LoadScene(0);
         }
     }
 }
