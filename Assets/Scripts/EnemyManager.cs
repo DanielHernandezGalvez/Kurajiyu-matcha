@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
 
     public float damage = -20f;
     public float health = 100;
+
+    public GameManager gameManager;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -43,6 +45,7 @@ public class EnemyManager : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            gameManager.enemiesAlive--;
         }
     }
 }
