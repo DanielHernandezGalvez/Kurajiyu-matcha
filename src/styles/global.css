@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+@theme {
+    --default-font-family: "Playfair", serif;
+
+    --color-matcha-leaves-50: #f3f6f3;
+    --color-matcha-leaves-100: #e3e9e2;
+    --color-matcha-leaves-200: #c7d4c6;
+    --color-matcha-leaves-300: #9fb69f;
+    --color-matcha-leaves-400: #749375;
+    --color-matcha-leaves-500: #5a7d5c;
+    --color-matcha-leaves-600: #3f5c41;
+    --color-matcha-leaves-700: #334936;
+    --color-matcha-leaves-800: #2a3b2c;
+    --color-matcha-leaves-900: #233124;
+    --color-matcha-leaves-950: #131b14;
+
+
+}
+
+.bg-hero {
+    background-image: url("/public/heroDesktop.png");
+    background-position: bottom;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1080px) {
+    .bg-hero {
+        background-image: url('/public/heroMovile.png');
+    }
+}
