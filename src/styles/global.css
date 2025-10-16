@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-    --default-font-family: "Playfair", serif;
-
+    --default-font-family: "Outfit", sans-serif;
+    --font-mono: "Playfair", serif ;
     --color-matcha-leaves-50: #f3f6f3;
     --color-matcha-leaves-100: #e3e9e2;
     --color-matcha-leaves-200: #c7d4c6;
@@ -18,10 +18,18 @@
 
 }
 
+@utility font-secondary {
+    font-family: "Playfair", serif;
+}
+
 .bg-hero {
     background-image: url("/public/heroDesktop.png");
     background-position: bottom;
     background-size: cover;
+}
+
+.bg-matcha{
+    background-color: #ECEBDE;
 }
 
 @media screen and (max-width: 1080px) {
