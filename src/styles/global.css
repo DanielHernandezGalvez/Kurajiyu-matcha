@@ -37,3 +37,7 @@
         background-image: url('/public/heroMovile.png');
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}

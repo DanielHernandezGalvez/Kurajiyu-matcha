@@ -1,16 +1,88 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
-<header class="fixed w-full h-35 flex justify-center items-center z-10 ">
-    <nav class="bg-matcha w-3/4 rounded-full shadow-lg">
-        <div class="flex justify-between items-center py-2 px-8">
-            <img class="w-30" src="/public/logo.png" alt="">
-            <ul class="flex space-x-6 text-matcha-leaves-600  font-semibold">
-                <li class="hover:text-matcha-leaves-700"><a href="">Features</a></li>
-                <li class="hover:text-matcha-leaves-700"><a href="">Pricing</a></li>
-                <li class="hover:text-matcha-leaves-700"><a href="">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<header class="fixed w-full h-30 lg:h-35 flex justify-center items-center z-10">
+  <nav class="bg-matcha w-[90%] rounded-full shadow-lg relative">
+    <div class="flex justify-between items-center py-3 px-8">
+      <!-- LOGO -->
+      <a href="/" class="flex items-center gap-2">
+        <img class="w-24" src="/public/logo.png" alt="Logo" />
+      </a>
+
+      <!-- BOTÓN -->
+      <button
+        id="menu-button"
+        class="text-matcha-leaves-600 text-3xl lg:hidden focus:outline-none"
+        aria-label="open-menu"
+        type="button"
+      >
+        <span id="icon-open" class="block">
+          <Icon name="bi:list" class="w-8 h-8 text-matcha-leaves-600" />
+        </span>
+        <span id="icon-close" class="hidden">
+          <Icon name="bi:x" class="w-8 h-8 text-matcha-leaves-600" />
+        </span>
+      </button>
+
+      <!-- MENÚ -->
+      <ul
+        id="menu"
+        class="flex-col lg:flex lg:flex-row lg:space-x-8 text-matcha-leaves-600 font-semibold absolute lg:static
+               bg-matcha lg:bg-transparent left-1/2 transform -translate-x-1/2 w-[100%] lg:w-auto rounded-2xl
+               transition-all duration-300 opacity-0 lg:opacity-100 top-[-400px] lg:top-auto py-6 lg:py-3 space-y-4 lg:space-y-0 text-center"
+      >
+        <li class="hover:text-matcha-leaves-700"><a href="/">Inicio</a></li>
+        <li class="hover:text-matcha-leaves-700"><a href="/#comprar">Comprar</a></li>
+        <li class="hover:text-matcha-leaves-700"><a href="/#contactar">Contactar</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const btn = document.getElementById("menu-button");
+  const menu = document.getElementById("menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  if (btn && menu && iconOpen && iconClose) {
+    const toggleMenu = (open: boolean) => {
+      if (open) {
+        menu.classList.remove("top-[-400px]", "opacity-0");
+        menu.classList.add("top-[100%]", "opacity-100");
+        iconOpen.classList.add("hidden");
+        iconClose.classList.remove("hidden");
+      } else {
+        menu.classList.remove("top-[100%]", "opacity-100");
+        menu.classList.add("top-[-400px]", "opacity-0");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+      }
+    };
+
+    let isOpen = false;
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // evita cerrar al hacer click en el botón
+      isOpen = !isOpen;
+      toggleMenu(isOpen);
+    });
+
+    // Cierra al hacer click fuera del menú
+    document.addEventListener("click", (e: any) => {
+      if (isOpen && !menu.contains(e.target) && !btn.contains(e.target)) {
+        isOpen = false;
+        toggleMenu(false);
+      }
+    });
+
+    // Cierra al hacer click en un enlace
+    menu.querySelectorAll("a").forEach((link) =>
+      link.addEventListener("click", () => {
+        isOpen = false;
+        toggleMenu(false);
+      })
+    );
+  }
+</script>
