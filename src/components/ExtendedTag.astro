@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    title: string;
+    subtitle: string;
+    icon: string;
+    colorIcon: string;
+}
+const { title, subtitle, icon, colorIcon } = Astro.props;
+---
+
+<div
+    class="w-full bg-matcha-leaves-100 px-5 py-3 rounded-xl flex items-center gap-4 shadow-sm"
+>
+    <div><Icon name={icon} class=`w-8 h-8 ${colorIcon}` /></div>
+    <div>
+        <h4 class="text-lg font-bold text-matcha-leaves-900">{title}</h4><p
+            class="text-sm text-matcha-leaves-950"
+        >
+            {subtitle}
+        </p>
+    </div>
+</div>

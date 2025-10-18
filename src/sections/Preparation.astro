@@ -1,0 +1,73 @@
+---
+import Tag from "@/components/Tag.astro";
+import Title from "@/components/Title.astro";
+import { Picture } from "astro:assets";
+const process = [
+    {
+        number: 1,
+        title: "Calienta el agua",
+        description:
+            "Calienta agua a aproximadamente 80°C. Evita el agua hirviendo para no quemar el matcha.",
+    },
+    {
+        number: 2,
+        title: "Añade el matcha",
+        description:
+            "Coloca 1-2 gramos (1-2 cucharaditas) de matcha ceremonial en un chawan (tazón para matcha).",
+    },
+    {
+        number: 3,
+        title: "Vierte el agua",
+        description: "Añade aproximadamente 70ml de agua caliente al tazón.",
+    },
+    {
+        number: 4,
+        title: "Bate el matcha",
+        description:
+            "Usa un chasen (batidor de bambú) para batir en forma de W hasta que se forme una espuma ligera en la superficie.",
+    },
+];
+---
+
+<section class="w-full pb-20 bg-matcha-leaves-50">
+    <Title title="Preparación del matcha" />
+    <div class="flex flex-wrap lg:flex-nowrap gap-5 justify-center items-center p-5">
+        <div class="w-full lg:w-2/3 bg-white rounded-2xl shadow-lg">
+            {
+                process.map((card) => (
+                    <div class="bg-white rounded-2xl p-4 m-4 hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-2xl text-matcha-leaves-500 font-bold mb-2">
+                            {" "}
+                            <span
+                                class={`bg-matcha-leaves-700 text-white ${card.number === 1 ? "px-4" : "px-4"} me-3 py-2 rounded-full `}
+                            >
+                                {card.number}
+                            </span>{" "}
+                            {card.title}
+                        </h3>
+                        <p class="text-matcha-leaves-600 text-lg">
+                            {card.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="w-full lg:w-1/3 flex justify-center items-center relative">
+            <Picture
+                src="/preparacion.png"
+                alt="preparación del matcha"
+                width={350}
+                height={600}
+                formats={["avif", "webp"]}
+                class="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+            />
+            <Tag
+                bg="bg-matcha-leaves-600"
+                text="text-white"
+                position="right-10 -bottom-5"
+                content="Fácil y rápido"
+            />
+        </div>
+    </div>
+</section>

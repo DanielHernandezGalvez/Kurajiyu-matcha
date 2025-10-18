@@ -1,0 +1,14 @@
+---
+interface Props {
+    bg: string;
+    text: string;
+    position: string;
+    content: string;
+}
+
+const { bg, text, position, content } = Astro.props;
+---
+
+<span
+    class=`absolute px-5 ${text} py-3 ${bg} rounded-full ${position} }`
+    >{content}</span>

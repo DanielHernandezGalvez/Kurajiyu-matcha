@@ -1,12 +1,100 @@
 ---
-import Title from '../components/Title.astro';
-
+import { Picture } from "astro:assets";
+import Title from "../components/Title.astro";
+import Tag from "@/components/Tag.astro";
+import ExtentedTag from "@/components/ExtendedTag.astro";
+import { Icon } from "astro-icon/components";
 ---
 
-<section class="h-screen w-full">
-    <div>
-        <Title title='Matcha Ceremonial Grade' subtitle='La máxima expresión del té verde japonés, cultivado con métodos tradicionales para una experiencia sensorial única' />
+<section class="w-full pb-20 bg-matcha">
+    <div class="mb-10 lg:mb-3">
+        <Title
+            title="Matcha Ceremonial Grade"
+            subtitle="La máxima expresión del té verde japonés, cultivado con métodos tradicionales para una experiencia sensorial única"
+        />
     </div>
-    <div></div>
 
+    <div
+        class="flex justify-center items-center gap-5 flex-wrap lg:flex-nowrap"
+    >
+        <div class="relative w-full lg:w-1/2 p-5 flex justify-center items-center">
+            <Picture
+                src="/producto.png"
+                width={420}
+                height={400}
+                alt="kurajiyu matcha"
+                formats={["avif", "webp"]}
+                class="object-cover rounded-2xl shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-matcha-leaves-500/70 hover:rotate-3 hover:shadow-2xl"
+            />
+            <Tag
+                bg="bg-matcha-leaves-600"
+                text="text-white"
+                position="right-5 lg:right-30 -top-1 lg:-top-5"
+                content="Premium"
+            />
+            <Tag
+                bg="bg-matcha-leaves-100"
+                text="text-matcha-leaves-600"
+                position="left-5 lg:left-25 -bottom-2 lg:-bottom-5"
+                content="100% Natural"
+            />
+        </div>
+
+        <div
+            class="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start px-3 lg:px-10 pb-10 gap-5"
+        >
+            <article
+                class="w-full lg:w-3/4 bg-matcha-leaves-50 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 text-justify"
+            >
+                Nuestro matcha ceremonial proviene de <b>Kagoshima</b>, una de
+                las regiones más prestigiosas para el té verde en Japón.
+                Cultivado en suelos volcánicos ricos en minerales y bajo un
+                cuidadoso proceso de sombreado previo a la cosecha.<br /> Las hojas
+                más jóvenes se cosechan en la primera recolección de primavera, se
+                cuecen al vapor para detener la oxidación y se muelen lentamente
+                en molinos de piedra hasta obtener un polvo ultrafino.
+            </article>
+
+            <div class="flex flex-wrap lg:flex-nowrap justify-between gap-5 w-full lg:w-3/4">
+                <ExtentedTag
+                    title="Kagoshima"
+                    subtitle="Origen premium"
+                    icon="bi:flower1"
+                    colorIcon="text-matcha-leaves-600 "
+                />
+                <ExtentedTag
+                    title="Calidad Superior"
+                    subtitle="Grado ceremonial"
+                    icon="bi:star-fill"
+                    colorIcon="text-matcha-leaves-600 "
+                />
+            </div>
+
+            <div
+                class="bg-matcha-leaves-50 rounded-2xl shadow-lg  gap-5 p-8 w-full lg:w-3/4"
+            >
+            <div class=" flex justify-center lg:justify-between items-center flex-wrap lg:flex-nowrap gap-5">
+                <p class="text-3xl text-matcha-leaves-500 font-bold">
+                    $628.00 <del class="text-sm font-light ms-4"> $739.00</del>
+                    <span
+                        class="text-white text-sm font-semibold bg-matcha-leaves-500 p-2 rounded-full"
+                        >15% off</span>
+                </p>
+                <a
+                    href="#"
+                    class="bg-matcha-leaves-500 text-white rounded-full px-3 py-2 flex items-center gap-2 hover:bg-matcha-leaves-400 transition-colors duration-300 hover:text-matcha-leaves-700"
+                    ><Icon name="bi:cart" />Comprar</a
+                >
+                </div>
+                <div class="flex justify-center gap-5 mt-5">
+                    <span class="flex justify-between items-center gap-1 text-sm text-matcha-leaves-400">
+                        <Icon name="bi:truck" class='text-matcha-leaves-600 text-lg' /> Envío serguro
+                    </span>
+                    <span class="flex justify-between items-center gap-1 text-sm text-matcha-leaves-400">
+                        <Icon name="bi:shield-shaded" class='text-matcha-leaves-600 text-lg' /> Garantía de calidad
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
